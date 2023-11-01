@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "YocOxMPfByoJMpzWhE9sC6CeM50UZjPk1tPcLOEMlaWD8U6ropMzT7MX7c+z3mzQnQu3g2DG65xJrhYRDSxXVQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\s2101087\\OneDrive - Business College Helsinki\\dotNet\\.Net\\SpaceInvaders\\SpaceInvaders.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\s2101087\\.nuget\\packages\\microsoft.toolkit.highperformance\\7.1.2\\microsoft.toolkit.highperformance.7.1.2.nupkg.sha512",
+    "C:\\Users\\s2101087\\.nuget\\packages\\raylib-cslo\\4.2.0.9\\raylib-cslo.4.2.0.9.nupkg.sha512"
+  ],
+  "logs": []
+}

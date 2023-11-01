@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "/6fET0luqLRt1rUv4RFdrYMZHs+GQ79Q0+7v0bN2i1M9UJ4Fr4EFRFr94CmLWhDLErbWWtgOqEBmb+zt7j4JzQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\s2101087\\OneDrive - Business College Helsinki\\dotNet\\.Net\\SpaceInvaders\\SpaceInvaders.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\s2101087\\.nuget\\packages\\microsoft.toolkit.highperformance\\7.1.2\\microsoft.toolkit.highperformance.7.1.2.nupkg.sha512",
+    "C:\\Users\\s2101087\\.nuget\\packages\\raylib-cslo\\4.2.0.9\\raylib-cslo.4.2.0.9.nupkg.sha512",
+    "C:\\Users\\s2101087\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\7.0.2\\microsoft.netcore.app.runtime.win-x64.7.0.2.nupkg.sha512",
+    "C:\\Users\\s2101087\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\7.0.2\\microsoft.windowsdesktop.app.runtime.win-x64.7.0.2.nupkg.sha512",
+    "C:\\Users\\s2101087\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\7.0.2\\microsoft.aspnetcore.app.runtime.win-x64.7.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

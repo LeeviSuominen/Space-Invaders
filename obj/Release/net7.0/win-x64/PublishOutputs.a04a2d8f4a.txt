@@ -1,0 +1,10 @@
+C:\Users\s2101087\OneDrive - Business College Helsinki\Työpöytä\Raylib SpaceInvades Kevät\SpaceInvaders.pdb
+C:\Users\s2101087\OneDrive - Business College Helsinki\Työpöytä\Raylib SpaceInvades Kevät\data\Images\PlayerShip.png
+C:\Users\s2101087\OneDrive - Business College Helsinki\Työpöytä\Raylib SpaceInvades Kevät\data\Images\EnemyPlane.png
+C:\Users\s2101087\OneDrive - Business College Helsinki\Työpöytä\Raylib SpaceInvades Kevät\data\Images\EnemyPlane2.png
+C:\Users\s2101087\OneDrive - Business College Helsinki\Työpöytä\Raylib SpaceInvades Kevät\data\Images\EnemyPlane3.png
+C:\Users\s2101087\OneDrive - Business College Helsinki\Työpöytä\Raylib SpaceInvades Kevät\data\Images\EnemyPlane4.png
+C:\Users\s2101087\OneDrive - Business College Helsinki\Työpöytä\Raylib SpaceInvades Kevät\data\Images\LaserAmmo.png
+C:\Users\s2101087\OneDrive - Business College Helsinki\Työpöytä\Raylib SpaceInvades Kevät\raylib.dll
+C:\Users\s2101087\OneDrive - Business College Helsinki\Työpöytä\Raylib SpaceInvades Kevät\raylib.pdb
+C:\Users\s2101087\OneDrive - Business College Helsinki\Työpöytä\Raylib SpaceInvades Kevät\SpaceInvaders.exe
