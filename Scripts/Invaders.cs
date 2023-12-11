@@ -1,4 +1,5 @@
 ﻿using Raylib_CsLo;
+using System.Data;
 using System.Globalization;
 using System.Numerics;
 using System.Reflection.Metadata.Ecma335;
@@ -15,7 +16,7 @@ namespace SpaceInvaders
 			PauseScreen,
 			DeveloperMenu
 		}
-		public GameState state;
+		Stack<GameState> state = new Stack<GameState>();
         int window_width = 900;
         int window_height = 900;
 
@@ -48,6 +49,7 @@ namespace SpaceInvaders
         MainMenu menu = new MainMenu();
 		OptionsMenu options = new OptionsMenu();
 		PauseMenu pauseMenu = new PauseMenu();
+		DeveloperMenu developerMenu = new DeveloperMenu();
 
 
         /// <summary>
@@ -65,7 +67,8 @@ namespace SpaceInvaders
             Raylib.SetTargetFPS(30);
 			Raylib.SetExitKey(KeyboardKey.KEY_BACKSPACE);
 			
-			state = GameState.Start;
+			state.Clear();
+			state.Push(GameState.Start);
 
 			// Different enemy images for different rows
 			enemyImages = new List<Texture>(4);
@@ -93,30 +96,40 @@ namespace SpaceInvaders
 			options.BackButtonPressed += OnBackButtonPressed;
 			pauseMenu.BackToMainMenu += OnMainMenuPressed;
 			pauseMenu.BackToGame += OnBackToGame;
+			developerMenu.BackFromDeveloper += OnBackFromDeveloper;
+			developerMenu.DeveloperResetGame += OnDeveloperResetGame;
 
-			ResetGame();
+			ResetGame(GameState.Start);
 		}
 
 		void OnStartButtonPressed(object sender, EventArgs args){
-			ResetGame();
-			state = GameState.Play;
+			ResetGame(GameState.Play);
 		}
 
 		void OnOptionsButtonPressed(object sender, EventArgs args){
-			state = GameState.OptionScreen;
+			state.Push(GameState.OptionScreen);
 			
 		}
 
 		void OnBackButtonPressed(object sender, EventArgs args){
-			state = GameState.Start;
+			state.Pop();
 		}
 
 		void OnMainMenuPressed(object sender, EventArgs args){
-			state = GameState.Start;
+			state.Push(GameState.Start);
 		}
 
 		void OnBackToGame(object sender, EventArgs args){
-			state = GameState.Play;
+			state.Pop();
+		}
+
+		void OnBackFromDeveloper(object sender, EventArgs args){
+			state.Pop();
+		}
+
+		void OnDeveloperResetGame(object sender, EventArgs args){
+			ResetGame(GameState.Play);
+			scoreCounter = 0;
 		}
 
 		public void SetMusicVolume(){
@@ -126,7 +139,7 @@ namespace SpaceInvaders
 		/// <summary>
 		/// The ResetGame function is used to reset the game to its initial state.
 		/// </summary>
-		public void ResetGame()
+		public void ResetGame(GameState gameState)
 		{
 			int playerWidth = 40;
 			int playerHeight = 40;
@@ -187,6 +200,8 @@ namespace SpaceInvaders
 				}
 				currentY += playerHeight + enemyBetween; // Vertical space between enemies
 			}
+			state.Clear();
+			state.Push(gameState);
 		}
 
 		
@@ -197,7 +212,14 @@ namespace SpaceInvaders
 		/// </summary>
 		public void GameLoop(){
             while (Raylib.WindowShouldClose() == false){
-				switch(state)
+
+#if DEBUG
+if (Raylib.IsKeyPressed(KeyboardKey.KEY_F1)){
+	state.Push(GameState.DeveloperMenu);
+}
+#endif
+
+				switch(state.Peek())
 				{
 					case GameState.Start:
 					Raylib.UpdateMusicStream(menuMusic);
@@ -216,7 +238,7 @@ namespace SpaceInvaders
                 	Draw();
                 	Update();
 					if(Raylib.IsKeyPressed(KeyboardKey.KEY_ESCAPE)){
-						state = GameState.PauseScreen;
+						state.Push(GameState.PauseScreen);
 					}
                 	Raylib.EndDrawing();
 					break;
@@ -243,6 +265,13 @@ namespace SpaceInvaders
 					Raylib.BeginDrawing();
 					Raylib.ClearBackground(Raylib.BLACK);
 					pauseMenu.Draw();
+					Raylib.EndDrawing();
+					break;
+
+					case GameState.DeveloperMenu:
+					Raylib.BeginDrawing();
+					Raylib.ClearBackground(Raylib.BLACK);
+					developerMenu.Draw();
 					Raylib.EndDrawing();
 					break;
 				}
@@ -527,7 +556,7 @@ namespace SpaceInvaders
 							if (enemiesLeft == 0)
 							{
 								// Win game
-								state = GameState.ScoreScreen;
+								state.Push(GameState.ScoreScreen);
 							}
 							// Do not test the rest of bullets
 							break;
@@ -538,7 +567,7 @@ namespace SpaceInvaders
 						if (Raylib.CheckCollisionRecs(bulletRec, playerRect))
 						{
 							Raylib.PlaySound(playerDie);
-							state = GameState.ScoreScreen;
+							state.Push(GameState.ScoreScreen);
 							player.active = false;
 						}
 					}
@@ -637,8 +666,7 @@ namespace SpaceInvaders
 		{
 			if (Raylib.IsKeyPressed(KeyboardKey.KEY_ENTER))
 			{
-				ResetGame();
-				state = GameState.Play;
+				ResetGame(GameState.Play);
 			}
 		}
 

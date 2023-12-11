@@ -30,7 +30,6 @@ namespace SpaceInvaders
 /// </summary>
         public void MenuUpdate()
 		{
-
             for (int i = 0; i < startScreenStars.Count; i++)
 			{
 				Vector2 s = startScreenStars[i];
