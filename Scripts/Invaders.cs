@@ -46,6 +46,8 @@ namespace SpaceInvaders
 
 		int scoreCounter = 0;
 
+		private bool resetPoints;
+
         MainMenu menu = new MainMenu();
 		OptionsMenu options = new OptionsMenu();
 		PauseMenu pauseMenu = new PauseMenu();
@@ -66,8 +68,11 @@ namespace SpaceInvaders
 			Raylib.InitWindow(window_width, window_height, "Space Invaders");
             Raylib.SetTargetFPS(30);
 			Raylib.SetExitKey(KeyboardKey.KEY_BACKSPACE);
-			
-			state.Clear();
+            Raylib.InitAudioDevice();
+
+			resetPoints = false;
+
+            state.Clear();
 			state.Push(GameState.Start);
 
 			// Different enemy images for different rows
@@ -84,7 +89,6 @@ namespace SpaceInvaders
 
 			// Audio for different scenarios in the game
 			
-			Raylib.InitAudioDevice();
 			playerShoot = Raylib.LoadSound("data/Audio/playerShoot.wav");
 			playerDie = Raylib.LoadSound("data/Audio/playerDie.wav");
 			enemyExplode = Raylib.LoadSound("data/Audio/enemyExplode.wav");
@@ -141,6 +145,10 @@ namespace SpaceInvaders
 		/// </summary>
 		public void ResetGame(GameState gameState)
 		{
+			if (resetPoints)
+			{
+				scoreCounter = 0;
+			}
 			int playerWidth = 40;
 			int playerHeight = 40;
 			int enemyWidth = playerWidth;
@@ -558,6 +566,7 @@ if (Raylib.IsKeyPressed(KeyboardKey.KEY_F1)){
 							{
 								// Win game
 								state.Push(GameState.ScoreScreen);
+								resetPoints = false;
 							}
 							// Do not test the rest of bullets
 							break;
@@ -570,6 +579,7 @@ if (Raylib.IsKeyPressed(KeyboardKey.KEY_F1)){
 							Raylib.PlaySound(playerDie);
 							state.Push(GameState.ScoreScreen);
 							player.active = false;
+							resetPoints = true;
 						}
 					}
 				}

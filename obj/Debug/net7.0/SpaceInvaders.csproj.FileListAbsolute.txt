@@ -31,3 +31,7 @@ C:\Users\s2101087\OneDrive - Business College Helsinki\dotNet\.Net\SpaceInvaders
 C:\Users\s2101087\OneDrive - Business College Helsinki\dotNet\.Net\SpaceInvaders\bin\Debug\net7.0\data\Images\EnemyPlane4.png
 C:\Users\s2101087\OneDrive - Business College Helsinki\dotNet\.Net\SpaceInvaders\bin\Debug\net7.0\data\Images\LaserAmmo.png
 C:\Users\s2101087\OneDrive - Business College Helsinki\dotNet\.Net\SpaceInvaders\bin\Debug\net7.0\data\Images\PlayerShip.png
+C:\Users\s2101087\OneDrive - Business College Helsinki\dotNet\.Net\SpaceInvaders\bin\Debug\net7.0\data\Audio\enemyExplode.wav
+C:\Users\s2101087\OneDrive - Business College Helsinki\dotNet\.Net\SpaceInvaders\bin\Debug\net7.0\data\Audio\menuMusic.mp3
+C:\Users\s2101087\OneDrive - Business College Helsinki\dotNet\.Net\SpaceInvaders\bin\Debug\net7.0\data\Audio\playerDie.wav
+C:\Users\s2101087\OneDrive - Business College Helsinki\dotNet\.Net\SpaceInvaders\bin\Debug\net7.0\data\Audio\playerShoot.wav
