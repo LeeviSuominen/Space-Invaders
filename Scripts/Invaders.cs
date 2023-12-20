@@ -222,6 +222,7 @@ if (Raylib.IsKeyPressed(KeyboardKey.KEY_F1)){
 				switch(state.Peek())
 				{
 					case GameState.Start:
+					scoreCounter = 0;
 					Raylib.UpdateMusicStream(menuMusic);
 					Raylib.PlayMusicStream(menuMusic);
 					menu.Init();

@@ -6,6 +6,9 @@ namespace SpaceInvaders
     {
         public event EventHandler BackFromDeveloper;
         public event EventHandler DeveloperResetGame;
+        /// <summary>
+        /// The Draw function is used to render or display the developer menu.
+        /// </summary>
         public void Draw()
         {
             int screenHeight = Raylib.GetScreenHeight();

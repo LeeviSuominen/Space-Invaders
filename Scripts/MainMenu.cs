@@ -15,6 +15,10 @@ namespace SpaceInvaders
         public event EventHandler StartButtonPressed;
         public event EventHandler OptionsButtonPressed;
         
+		/// <summary>
+		/// The Init function initializes a list of Vector2 objects with random x and y coordinates within
+		/// specified ranges used for the startscreen stars.
+		/// </summary>
 		public void Init(){
             Random random = new Random();
 			startScreenStars = new List<Vector2>(20);
@@ -68,11 +72,7 @@ namespace SpaceInvaders
 				Raylib.DrawText("Pause Game: ESC", 1, 50, 25, Raylib.WHITE);
 				Raylib.DrawText("Exit Game: BACKSPACE", 1, 75, 25, Raylib.WHITE);
 			}
-
-			/*
-			string press = "Press ENTER";
-			DrawTextCentered(press, window_height/2, 30, Raylib.DARKPURPLE);
-			*/
+			
 			int center_X = window_width / 2 - button_width / 2;
 			int center_Y = window_height / 2 - button_height / 2;
 			if(RayGui.GuiButton(new Rectangle(center_X, center_Y, button_width, button_height), "Start game")){
