@@ -11,9 +11,18 @@ namespace SpaceInvaders
         int width = 160;
         public event EventHandler BackToGame;
         public event EventHandler BackToMainMenu;
-        public void Draw(){
+        private readonly Invaders invaders;
+        
+      public PauseMenu(Invaders invaders = null)
+        {
+            this.invaders = invaders;
+        }
+
+        public void Draw(Invaders invaders){
             int center_X = screenWidth / 2 - width / 2;
             int center_Y = screenHeight / 2 - height / 2;
+
+            int enemiesKilled = invaders.EnemiesKilled;
 
             int font = 40;
             string pauseText = "Game Paused";
@@ -35,6 +44,8 @@ namespace SpaceInvaders
             {
                 BackToMainMenu.Invoke(this, EventArgs.Empty);
             }
+
+            Raylib.DrawText("Enemies killed: " + enemiesKilled, 100, 275, 25, Raylib.WHITE);
         }
     }
 }

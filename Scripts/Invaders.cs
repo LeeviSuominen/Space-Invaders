@@ -27,6 +27,7 @@ namespace SpaceInvaders
 		float playerBulletSpeed = 330;
 		int bulletWidth;
 		int BulletHeight;
+		public int EnemiesKilled { get; private set; }
 
 		double enemyShootInterval;
 		double lastEnemyShootTime;
@@ -273,7 +274,7 @@ if (Raylib.IsKeyPressed(KeyboardKey.KEY_F1)){
 					case GameState.PauseScreen:
 					Raylib.BeginDrawing();
 					Raylib.ClearBackground(Raylib.BLACK);
-					pauseMenu.Draw();
+					pauseMenu.Draw(this);
 					Raylib.EndDrawing();
 					break;
 
@@ -560,6 +561,7 @@ if (Raylib.IsKeyPressed(KeyboardKey.KEY_F1)){
 							scoreCounter += enemy.scoreValue;
 							enemy.active = false;
 							bullet.active = false;
+							EnemiesKilled++;
 
 							int enemiesLeft = CountAliveEnemies();
 							if (enemiesLeft == 0)
@@ -580,6 +582,7 @@ if (Raylib.IsKeyPressed(KeyboardKey.KEY_F1)){
 							state.Push(GameState.ScoreScreen);
 							player.active = false;
 							resetPoints = true;
+							EnemiesKilled = 0;
 						}
 					}
 				}
