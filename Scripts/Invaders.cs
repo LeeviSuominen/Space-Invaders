@@ -102,7 +102,8 @@ namespace SpaceInvaders
 			pauseMenu.BackToMainMenu += OnMainMenuPressed;
 			pauseMenu.BackToGame += OnBackToGame;
 			developerMenu.BackFromDeveloper += OnBackFromDeveloper;
-			developerMenu.DeveloperResetGame += OnDeveloperResetGame;
+			developerMenu.DeveloperResetGame += OnMenuResetGame;
+			pauseMenu.PauseResetGame += OnMenuResetGame;
 
 			ResetGame(GameState.Start);
 		}
@@ -132,9 +133,10 @@ namespace SpaceInvaders
 			state.Pop();
 		}
 
-		void OnDeveloperResetGame(object sender, EventArgs args){
+		void OnMenuResetGame(object sender, EventArgs args){
 			ResetGame(GameState.Play);
 			scoreCounter = 0;
+			EnemiesKilled = 0;
 		}
 
 		public void SetMusicVolume(){
