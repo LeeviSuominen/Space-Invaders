@@ -1,4 +1,4 @@
-# Space-Invaders
+# Space Invaders
 Copy of the 2D game called Space Invaders. This was made using C#, Raylib and Raygui. 
 
 # Controls
